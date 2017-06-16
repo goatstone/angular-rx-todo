@@ -1,8 +1,10 @@
 # Angular RX Todo
 
-A Todo application to provide a starting point for Angular applications that use Material design and @ngrx
+A Todo application created from a starter application featuring @ngrx.
+This Todo application should exist as a guide for building applications from 
+starters such as the @ngrx starer.
 
-This application is based on this starter application:
+The start application this Todo application is based on is here:
 
 https://github.com/ngrx/example-app
 
@@ -33,10 +35,13 @@ So I can refer to my libraries like so:
 
 goatstone/todo/todo.component.ts
 
-My distinct files will reside, mostly in the goatstone folder
-
 # start the server
 ng serve
 ```
 
 Navigate to [http://localhost:4200/](http://localhost:4200/) in your browser
+
+## The Todo @ngrx strategy
+
+
+
