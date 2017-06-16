@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "/home/goat/projects/angular-rx-todo/src/",
     "declaration": true,
     "stripInternal": true,
     "emitDecoratorMetadata": true,

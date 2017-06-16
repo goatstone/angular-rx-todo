@@ -1,7 +1,7 @@
 {
-  "name": "@ngrx/example-app",
+  "name": "angular-rx-todo",
   "version": "1.0.0",
-  "description": "Example application demoing the @ngrx platform",
+  "description": "A Todo application made with Angular, Ngrx, Material based on the starter application https://github.com/ngrx/example-app.git",
   "main": "index.ts",
   "scripts": {
     "ng": "ng",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ngrx/example-app.git"
+    "url": "git+https://github.com/JoseHerminioCollas/anglar-rx-todo.git"
   },
-  "author": "Mike Ryan",
+  "author": "Jose Collas",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ngrx/example-app/issues"
+    "url": "https://github.com/JoseHerminioCollas/anglar-rx-todo/issues"
   },
-  "homepage": "https://github.com/ngrx/example-app#readme",
+  "homepage": "https://github.com/JoseHerminioCollas/anglar-rx-todo/blob/master/README.md",
   "engines": {
     "node": ">= 6.9.0",
     "npm": ">= 3.0.0"
