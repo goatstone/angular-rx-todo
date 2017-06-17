@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/JoseHerminioCollas/anglar-rx-todo.git"
   },
-  "author": "Jose Collas",
+  "author": "Jose Collas, Mike Ryan(starter application)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/JoseHerminioCollas/anglar-rx-todo/issues"
@@ -45,6 +45,7 @@
     "@ngrx/store-devtools": "^3.2.0",
     "core-js": "^2.4.1",
     "hammerjs": "^2.0.8",
+    "ip": "^1.1.5",
     "reselect": "^3.0.0",
     "rxjs": "^5.1.0",
     "ts-helpers": "^1.1.1",

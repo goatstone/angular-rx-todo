@@ -41,7 +41,17 @@ ng serve
 
 Navigate to [http://localhost:4200/](http://localhost:4200/) in your browser
 
-## The Todo @ngrx strategy
+### Build the distribution and run the server
+
+```bash
+
+yarn build
+
+node serve/one.js
+
+```
+
+### The Todo @ngrx strategy
 
 
 
