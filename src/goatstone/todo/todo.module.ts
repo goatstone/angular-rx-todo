@@ -6,6 +6,8 @@ import { MaterialModule } from '@angular/material'
 import { TodoComponent } from 'goatstone/todo/todo.component'
 import { reducer } from 'goatstone/todo/reducers/todo'
 import { ReactiveFormsModule } from '@angular/forms'
+import TodoHeader  from 'goatstone/todo/todo-header.component'
+import TodoAdd  from 'goatstone/todo/todo-add-todo.copmonent'
 
 @NgModule({
   imports:      [
@@ -15,7 +17,11 @@ import { ReactiveFormsModule } from '@angular/forms'
     StoreModule.provideStore(reducer),
     ReactiveFormsModule
   ],
-  declarations: [ TodoComponent ],
+  declarations: [ 
+    TodoComponent, 
+    TodoHeader,
+    TodoAdd
+    ],
   bootstrap:    [ TodoComponent ]
 })
 export class TodoModule { }
