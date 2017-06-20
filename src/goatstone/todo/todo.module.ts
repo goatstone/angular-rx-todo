@@ -8,6 +8,7 @@ import { reducer } from 'goatstone/todo/reducers/todo'
 import { ReactiveFormsModule } from '@angular/forms'
 import TodoHeader  from 'goatstone/todo/todo-header.component'
 import TodoAdd  from 'goatstone/todo/todo-add-todo.copmonent'
+import TodoList from 'goatstone/todo/todo-list.component'
 
 @NgModule({
   imports:      [
@@ -20,7 +21,8 @@ import TodoAdd  from 'goatstone/todo/todo-add-todo.copmonent'
   declarations: [ 
     TodoComponent, 
     TodoHeader,
-    TodoAdd
+    TodoAdd,
+    TodoList
     ],
   bootstrap:    [ TodoComponent ]
 })
