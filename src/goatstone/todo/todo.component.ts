@@ -2,9 +2,9 @@ import { Component } from '@angular/core'
 import { Store } from '@ngrx/store'
 import { Observable } from 'rxjs/Observable'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import * as todoReduce from 'goatstone/todo/reducers/todo'
-import { ADD_TODO } from 'goatstone/todo/actions/todo'
 import { Todo } from 'goatstone/todo/models/todo'
+import * as todoReduce from 'goatstone/todo/reducers/todo'
+import * as todoAction from 'goatstone/todo/actions/todo'
 
 @Component({
   selector: 'goatstone-todo',
@@ -35,54 +35,20 @@ import { Todo } from 'goatstone/todo/models/todo'
     </md-card-content>
 
   </md-card>
-  <md-card>
-    <div *ngFor="let todo of todos$ | async">
-      <h4>{{todo.name}}</h4>
-      <div *ngIf="todo.description">
-        {{todo.description}}
-      </div>
-    </div>
-  </md-card>`,
-  styles: [`
-    .todo-form {
-      background: #aaa;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 0;
-    }`,
-  `
-    .todo-form md-card-header {
-      background: #ccc;
-      width: 100%;
-    }`,
-    `
-    .todo-form md-card-content{
-      padding: 12px;
-      min-width: 250px;
-      background: #ddd;
-    }
-    .todo-form md-card-content form{
-      display: flex;
-      justify-content: space-around;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      width: 100%;
-    }
-    .todo-form md-card-content form md-input-container{
-      background: #fff;
-      padding: 0 12px;
-      margin: 6px;
-      overflow: hidden;
-      border-radius: 6px;
-      border: 6px solid #fff;
-    }
-    .todo-form md-card-content form md-input-container label{
-      color: #999;
-    }
-    `
-  ]
+
+<md-list>
+  <md-list-item *ngFor="let todo of todos$ | async; index as i">
+    <h3 md-line> {{todo.name}} </h3>
+    <button md-icon-button (click)="removeTodo(i)">
+      <md-icon>clear</md-icon>
+    </button>
+    <p md-line>
+      <span> {{todo.description}} </span>
+    </p>
+  </md-list-item>
+</md-list>
+`,
+  styleUrls: [ './todo.css' ]
 })
 
 export class TodoComponent {
@@ -96,11 +62,15 @@ export class TodoComponent {
     this.todos$ = store.select(todoReduce.getTodos)
     this.todoForm.valueChanges
       .subscribe(data => this.valueChange(data));
+    this.store.dispatch({ type: todoAction.ADD_TODO, payload: {name: 'xxx', description: 'xxxxxxxxxxx xxxx'}})
   }
   valueChange (todo: any) {
     console.log('todo make', todo)
   }
+  removeTodo (index: number) {
+    this.store.dispatch({ type: todoAction.REMOVE_TODO, payload: index})
+  }
   makeTodo (todo: any) {
-    this.store.dispatch({ type: ADD_TODO, payload: this.todoForm.value})
+    this.store.dispatch({ type: todoAction.ADD_TODO, payload: this.todoForm.value})
   }
 }

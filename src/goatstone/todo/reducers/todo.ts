@@ -13,6 +13,9 @@ export function reducer(state = initialState, action: Action): State{
         case todoAction.ADD_TODO: {
             return {todos: [...state.todos, action.payload]}
         }
+        case todoAction.REMOVE_TODO: {
+            return {todos: state.todos.filter((x, i) => action.payload !== i)}
+        }
         default: {
             return state
         }
