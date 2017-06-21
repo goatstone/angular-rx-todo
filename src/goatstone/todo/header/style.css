@@ -1,0 +1,15 @@
+
+:host /deep/ md-toolbar md-toolbar-row {
+    display: flex;
+    justify-content:space-between;
+}
+:host /deep/ md-toolbar-row .icon-container {
+    margin: 12px;
+}
+:host /deep/ md-toolbar-row .icon-container button {
+    background: rgb(0, 188, 212);
+    margin: 12px;
+}
+:host /deep/ md-toolbar-row .icon-container md-icon {
+    cursor: pointer;
+}

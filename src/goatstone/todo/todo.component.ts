@@ -14,7 +14,7 @@ import { AddTodoDialog } from 'goatstone/todo/dialog/add-todo'
   template: `
   <todo-header
     [config]=headerConfig
-    (click)="openAddTodoDialog()"
+    (emitOpenDialog)="openDialog($event)"
   ></todo-header>
   <todo-list
     [todos$]=todos$
@@ -30,23 +30,20 @@ export class TodoComponent {
 
   constructor (private store: Store<todoReduce.State>, private ds: DialogService) {
     this.todos$ = store.select(todoReduce.getTodos)
-    this.openInformationDialog()
+    // this.openInformationDialog()
     this.store.dispatch({type: todoAction.ADD_TODO, payload: {name: 'Make a Todo item', description: 'Try to do this soon.'}})
   }
-  private openInformationDialog () {
-    this.ds.openDialog(InformationDialog)
-    .subscribe((res: any) => {
-      console.log('r', res)
-    })
-  }
-  private openAddTodoDialog () {
-    this.ds.openDialog(AddTodoDialog)
-    .subscribe((res: any) => {
-      console.log('r', res)
-      if(res) {
-        this.store.dispatch({type: todoAction.ADD_TODO, payload: res})
-      }
-    })
+  private openDialog (which: string) {
+    if(which === 'add'){
+      this.ds.openDialog(AddTodoDialog)
+      .subscribe((res: any) => {
+        if(res) {
+          this.store.dispatch({type: todoAction.ADD_TODO, payload: res})
+        }
+      })
+    } else if(which === 'info') {
+      this.ds.openDialog(InformationDialog)
+    }
   }
   removeTodo (index: number) {
     this.store.dispatch({type: todoAction.REMOVE_TODO, payload: index})
