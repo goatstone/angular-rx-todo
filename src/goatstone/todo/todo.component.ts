@@ -30,15 +30,15 @@ export class TodoComponent {
 
   constructor (private store: Store<todoReduce.State>, private ds: DialogService) {
     this.todos$ = store.select(todoReduce.getTodos)
-    // this.openInformationDialog()
+    this.openDialog('add')
     this.store.dispatch({type: todoAction.ADD_TODO, payload: {name: 'Make a Todo item', description: 'Try to do this soon.'}})
   }
   private openDialog (which: string) {
     if(which === 'add'){
       this.ds.openDialog(AddTodoDialog)
-      .subscribe((res: any) => {
-        if(res) {
-          this.store.dispatch({type: todoAction.ADD_TODO, payload: res})
+      .subscribe((todo: Todo) => {
+        if(todo) {
+          this.store.dispatch({type: todoAction.ADD_TODO, payload: todo})
         }
       })
     } else if(which === 'info') {

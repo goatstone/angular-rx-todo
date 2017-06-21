@@ -1,6 +1,7 @@
 import {Component, Injectable, ViewContainerRef } from '@angular/core';
 import { MdDialogRef, MdDialog, MdDialogConfig } from '@angular/material';
 import { Observable } from 'rxjs/Rx';
+import { Todo } from 'goatstone/todo/models/todo'
 
 @Injectable()
 export class DialogService {
@@ -13,7 +14,7 @@ export class DialogService {
         this.dialog.closeAll()
     }
     public openDialog(content: any):
-    Observable<boolean> {
+    Observable<Todo> {
         this.dialogRef = this.dialog.open(content)
         return this.dialogRef.afterClosed()
     }

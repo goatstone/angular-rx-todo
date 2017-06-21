@@ -5,6 +5,36 @@
     align-items: center;
     padding: 0;
 }
+.todo-form .col-one{
+    background: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    margin-right: 10px;
+}
+.todo-form .col-one div{
+    width: 100%;
+}
+.todo-form .col-one md-input-container{
+    width: 100%;
+}
+
+.todo-form .form-element-container {
+    background: #fff;
+    width: 100%;
+    padding: 0 12px;
+    margin: 6px;
+    overflow: hidden;
+    border-radius: 6px;
+    border: 6px solid #fff;
+}
+.todo-form .form-element-container label {
+    margin-right: 20px;
+}
+/deep/ .todo-form .form-element-container .mat-select-trigger {
+    min-width: 50px;
+}
 md-card{
     background: blue;
     padding: 0;
@@ -45,6 +75,6 @@ md-card div h4{
     border-radius: 6px;
     border: 6px solid #fff;
 }
-.todo-form md-card-content form md-input-container label{
+.todo-form md-card-content form label{
     color: #999;
 }

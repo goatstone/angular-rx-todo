@@ -8,18 +8,31 @@ import { Todo } from 'goatstone/todo/models/todo'
   <md-card class="todo-form">
     <md-card-content>
       <h4>Add a Todo</h4>
+      
       <form [formGroup]="todoForm" (ngSubmit)="sendData(todoForm.value)">
-        <md-input-container md-error>
-          <label for="title">
-            <span>*</span> Title
-          </label>
-          <input id="title" formControlName="name" mdInput autofocus maxlength="50">
-        </md-input-container>
+
+        <div class="col-one">
+          <md-input-container md-error>
+            <label for="title">
+              <span>*</span> Title
+            </label>
+            <input id="title" formControlName="name" mdInput autofocus maxlength="50">
+          </md-input-container>
+          <div class="form-element-container">
+            <label for="il">Importance Level </label>
+            <md-select id="il" formControlName="importanceLevel" placeHoder=1>
+              <md-option *ngFor="let level of levels" 
+              [value]=level>{{ level }}</md-option>
+            </md-select>
+          </div>
+        </div>
+
         <md-input-container>
           <label for="desc">Description</label>
           <textarea formControlName="description" mdInput maxlength="200">
           </textarea>
         </md-input-container>
+
         <button [disabled]="!todoForm.valid" type="submit" md-mini-fab>
           <md-icon>add</md-icon>
         </button>
@@ -31,10 +44,12 @@ import { Todo } from 'goatstone/todo/models/todo'
 })
 
 export default class TodoAdd {
-  @Output() emitTodo: EventEmitter<Todo> = new EventEmitter();  
+  @Output() emitTodo: EventEmitter<Todo> = new EventEmitter()
+  readonly levels = [0, 1, 2]
   private todoForm = this.fb.group({
     name: ['', Validators.required],
-    description: ['']
+    description: [''],
+    importanceLevel: 0
   })
 
   constructor (private fb: FormBuilder) {

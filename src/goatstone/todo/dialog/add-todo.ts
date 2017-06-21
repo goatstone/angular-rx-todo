@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
+import { Todo } from 'goatstone/todo/models/todo'
 
 @Component({
     selector: 'add-todo-dialog',
@@ -14,11 +15,10 @@ import { MdDialogRef } from '@angular/material';
 export class AddTodoDialog {
     public title: string;
     public message: string;
-//    public instance: AddTodoDialog
 
     constructor(public dialogRef: MdDialogRef<AddTodoDialog>) { }
-    private makeTodo (e: any) {
-        this.dialogRef.close(e)
+    private makeTodo (todo: Todo) {
+        this.dialogRef.close(todo)
     }
     private close (e: any) {
         this.dialogRef.close(false)
