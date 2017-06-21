@@ -1,6 +1,6 @@
 
 export interface Todo {
     name: string
-    imortanceLevel: number
+    importanceLevel: number
     description?: string
 }

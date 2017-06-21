@@ -22,7 +22,7 @@ import { Todo } from 'goatstone/todo/models/todo'
             <label for="il">Importance Level </label>
             <md-select id="il" formControlName="importanceLevel" placeHoder=1>
               <md-option *ngFor="let level of levels" 
-              [value]=level>{{ level }}</md-option>
+              [value]=level.value>{{ level.title }}</md-option>
             </md-select>
           </div>
         </div>
@@ -45,7 +45,11 @@ import { Todo } from 'goatstone/todo/models/todo'
 
 export default class TodoAdd {
   @Output() emitTodo: EventEmitter<Todo> = new EventEmitter()
-  readonly levels = [0, 1, 2]
+  readonly levels = [
+    {value: 0, title: 'Low'},
+    {value: 1, title: 'Medium'},
+    {value: 2, title: 'High'}
+    ]
   private todoForm = this.fb.group({
     name: ['', Validators.required],
     description: [''],

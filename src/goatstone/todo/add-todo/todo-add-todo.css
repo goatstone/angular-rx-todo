@@ -32,9 +32,6 @@
 .todo-form .form-element-container label {
     margin-right: 20px;
 }
-/deep/ .todo-form .form-element-container .mat-select-trigger {
-    min-width: 50px;
-}
 md-card{
     background: blue;
     padding: 0;
