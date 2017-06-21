@@ -20,8 +20,7 @@ import { AddTodoDialog } from 'goatstone/todo/dialog/add-todo'
     [todos$]=todos$
     (removeTodo)="removeTodo($event)"
   ></todo-list>
-`,
-  styleUrls: [ './todo.css' ]
+`
 })
 
 export class TodoComponent {
