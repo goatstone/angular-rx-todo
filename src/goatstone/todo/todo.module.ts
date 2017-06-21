@@ -9,6 +9,9 @@ import { ReactiveFormsModule } from '@angular/forms'
 import TodoHeader  from 'goatstone/todo/todo-header.component'
 import TodoAdd  from 'goatstone/todo/todo-add-todo.copmonent'
 import TodoList from 'goatstone/todo/todo-list.component'
+import { DialogService } from 'goatstone/todo/dialog/service'
+import { InformationDialog } from 'goatstone/todo/dialog/information'
+import { AddTodoDialog } from 'goatstone/todo/dialog/add-todo'
 
 @NgModule({
   imports:      [
@@ -18,11 +21,20 @@ import TodoList from 'goatstone/todo/todo-list.component'
     StoreModule.provideStore(reducer),
     ReactiveFormsModule
   ],
-  declarations: [ 
-    TodoComponent, 
+  declarations: [
+    TodoComponent,
     TodoHeader,
     TodoAdd,
-    TodoList
+    TodoList,
+    InformationDialog,
+    AddTodoDialog
+    ],
+  providers: [
+    DialogService
+    ],
+  entryComponents: [
+    InformationDialog,
+    AddTodoDialog
     ],
   bootstrap:    [ TodoComponent ]
 })
