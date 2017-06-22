@@ -17,10 +17,10 @@ export class AddTodoDialog {
     public message: string;
 
     constructor(public dialogRef: MdDialogRef<AddTodoDialog>) { }
-    private makeTodo (todo: Todo) {
+    public makeTodo (todo: Todo) {
         this.dialogRef.close(todo)
     }
-    private close (e: any) {
+    public close (e: any) {
         this.dialogRef.close(false)
     }
 }

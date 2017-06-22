@@ -25,8 +25,8 @@ import { AddTodoDialog } from 'goatstone/todo/dialog/add-todo'
 })
 
 export class TodoComponent {
-  private todos$: Observable<Todo[]>
-  private headerConfig: any = {title: 'TODO'}
+  public todos$: Observable<Todo[]>
+  public headerConfig: any = {title: 'TODO'}
 
   constructor (
     private store: Store<todoReduce.State>, 
@@ -49,7 +49,7 @@ export class TodoComponent {
         {name: 'ZZZ', description: 'z.', importanceLevel: 2}})
     this.openSnackBar('Welcome to todo!', '')
   }
-  private openDialog (which: string) {
+  public openDialog (which: string) {
     if(which === 'add'){
       this.ds.openDialog(AddTodoDialog)
       .subscribe((todo: Todo) => {
@@ -66,7 +66,7 @@ export class TodoComponent {
       duration: 2000,
     });
   }
-  private removeTodo (index: number) {
+  public removeTodo (index: number) {
     this.store.dispatch({type: todoAction.REMOVE_TODO, payload: index})
   }
   private makeTodo (todo: Todo) {

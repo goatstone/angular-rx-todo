@@ -32,7 +32,7 @@ import { Observable } from 'rxjs/Observable'
   ]
 })
 
-export default class TodoList {
+export class TodoList {
   @Input() todos$: Observable<Todo[]>
   @Output() removeTodo: EventEmitter<number> = new EventEmitter()
   readonly levelStyles = ['level-0', 'level-1', 'level-2',]
