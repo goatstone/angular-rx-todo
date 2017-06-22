@@ -18,7 +18,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
   styleUrls: [`./style.css`]
 })
 
-export default class TodoHeader {
+export class TodoHeader {
   @Input() config: any
   @Output() emitOpenDialog: EventEmitter<string> = new EventEmitter()
   readonly ADD = 'add'

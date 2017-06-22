@@ -43,14 +43,14 @@ import { Todo } from 'goatstone/todo/models/todo'
   styleUrls: [ './todo-add-todo.css' ]
 })
 
-export default class TodoAdd {
+export class TodoAdd {
   @Output() emitTodo: EventEmitter<Todo> = new EventEmitter()
   readonly levels = [
     {value: 0, title: 'Low'},
     {value: 1, title: 'Medium'},
     {value: 2, title: 'High'}
     ]
-  private todoForm = this.fb.group({
+  public todoForm = this.fb.group({
     name: ['', Validators.required],
     description: [''],
     importanceLevel: 0
