@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { StoreModule } from '@ngrx/store'
 import { MaterialModule } from '@angular/material'
+import { EffectsModule } from '@ngrx/effects'
+
 import { TodoComponent } from 'goatstone/todo/todo.component'
 import { reducer } from 'goatstone/todo/reducers/todo'
 import { ReactiveFormsModule } from '@angular/forms'
@@ -12,6 +14,8 @@ import { TodoList } from 'goatstone/todo/list-todo/todo-list.component'
 import { DialogService } from 'goatstone/todo/dialog/service'
 import { InformationDialog } from 'goatstone/todo/dialog/information'
 import { AddTodoDialog } from 'goatstone/todo/dialog/add-todo'
+import { TodoEffects } from 'goatstone/todo/effects/todo'
+import { SnackBarService } from 'goatstone/todo/snackbar/service'
 
 @NgModule({
   imports:      [
@@ -19,7 +23,8 @@ import { AddTodoDialog } from 'goatstone/todo/dialog/add-todo'
     BrowserAnimationsModule,
     MaterialModule,
     StoreModule.provideStore(reducer),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    EffectsModule.run(TodoEffects)
   ],
   declarations: [
     TodoComponent,
@@ -30,7 +35,8 @@ import { AddTodoDialog } from 'goatstone/todo/dialog/add-todo'
     AddTodoDialog
     ],
   providers: [
-    DialogService
+    DialogService,
+    SnackBarService
     ],
   entryComponents: [
     InformationDialog,
