@@ -25,7 +25,6 @@ export class TodoEffects {
     .ofType(todo.ADD_TODO)
     .map(toPayload)
     .map(query => {
-      console.log('q', query)
       this.snackBar.show(query.name, this.message.add)
       return query
   })
@@ -34,7 +33,6 @@ export class TodoEffects {
     .ofType(todo.REMOVE_TODO)
     .map(toPayload)
     .map(query => {
-      console.log('q', query)
       this.snackBar.show(this.message.remove)
       return query
   })

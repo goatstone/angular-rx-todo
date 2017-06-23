@@ -13,3 +13,7 @@
 :host /deep/ md-toolbar-row .icon-container md-icon {
     cursor: pointer;
 }
+:host /deep/ md-toolbar-row h1 {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 24px
+}

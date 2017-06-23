@@ -19,6 +19,9 @@ import { Observable } from 'rxjs/Observable'
 </md-list>
 `,
   styles: [`
+    md-list-item{
+      padding: 12px 0;
+    }
     .level-0 {
       background: #fdd;
     }

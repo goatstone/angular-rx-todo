@@ -9,7 +9,10 @@ import { Todo } from 'goatstone/todo/models/todo'
     <md-card-content>
       <h4>Add a Todo</h4>
       
-      <form [formGroup]="todoForm" (ngSubmit)="sendData(todoForm.value)">
+      <form 
+        [formGroup]="todoForm" 
+        (ngSubmit)="sendData(todoForm.value)" 
+        class="todo-form">
 
         <div class="col-one">
           <md-input-container md-error>
@@ -27,15 +30,17 @@ import { Todo } from 'goatstone/todo/models/todo'
           </div>
         </div>
 
+  <div class="desc-row">
         <md-input-container>
           <label for="desc">Description</label>
           <textarea formControlName="description" mdInput maxlength="200">
           </textarea>
         </md-input-container>
-
         <button [disabled]="!todoForm.valid" type="submit" md-mini-fab>
           <md-icon>add</md-icon>
         </button>
+  </div>
+
       </form>
     </md-card-content>
   </md-card>
