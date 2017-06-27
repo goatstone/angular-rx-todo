@@ -9,8 +9,20 @@ import { Todo } from 'goatstone/todo/models/todo'
             (emitTodo)="makeTodo($event)"
         ></todo-add>
         <button type="button" md-button 
-            (click)="close($event)">Cancel</button>
-    `
+            (click)="close($event)">Close</button>
+    `,
+    styles: [`
+    :host {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        color: rgb(0, 188, 212);
+    }
+    :host /deep/ button.mat-mini-fab {
+        color: white;
+        background: rgb(0, 188, 212);
+    }
+    `]
 })
 export class AddTodoDialog {
     public title: string;

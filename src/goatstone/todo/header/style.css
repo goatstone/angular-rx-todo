@@ -7,6 +7,7 @@
     margin: 12px;
 }
 :host /deep/ md-toolbar-row .icon-container button {
+    color: white;
     background: rgb(0, 188, 212);
     margin: 12px;
 }

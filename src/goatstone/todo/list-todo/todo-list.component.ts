@@ -31,6 +31,9 @@ import { Observable } from 'rxjs/Observable'
     .level-2 {
       background: #f77;
     }
+    p {
+      color: #444;
+    }
     `
   ]
 })
